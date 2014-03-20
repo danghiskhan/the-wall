@@ -1,7 +1,7 @@
 /* CSS declarations go here */
 
 .square {
-    width: 10px;
-    height: 10px;
-    display: inline;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
 }

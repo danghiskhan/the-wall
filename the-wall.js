@@ -1,5 +1,8 @@
 Squares = new Meteor.Collection('squares');
 
+var WIDTH = 16;
+var HEIGHT = 9;
+
 if (Meteor.isClient) {
   Template.hello.greeting = function () {
     return "Welcome to the wall.";
@@ -13,14 +16,19 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.wall.squares = function() {
-    return Squares.find();
+  Template.wall.rows = function() {
+    var rows = [];
+
+    for (var i = 0; i < HEIGHT; i++) {
+      rows.push({
+        squares: Squares.find({ y: i })
+      });
+    };
+
+    return rows;
   };
 
 }
-
-var WIDTH = 40;
-var HEIGHT = 20;
 
 if (Meteor.isServer) {
   var insertAllSquares = function() {
