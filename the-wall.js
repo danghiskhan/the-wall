@@ -17,8 +17,13 @@ if (Meteor.isClient) {
   };
 
   Template.color_picker.rendered = function() {
+    var startColor = Random.hexString(6);
+
+    $('#selected-color').val(startColor);
+
     $('#color-picker').ColorPicker({
       flat: true,
+      color: '#' + startColor,
       onChange: function(hsb, hex) {
         $('#selected-color').val(hex);  
       }
