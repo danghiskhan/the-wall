@@ -4,18 +4,6 @@ var WIDTH = 16;
 var HEIGHT = 9;
 
 if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to the wall.";
-  };
-
-  Template.hello.events({
-    'click input': function () {
-      // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button");
-    }
-  });
-
   Template.wall.rows = function() {
     var rows = [];
 
@@ -28,6 +16,26 @@ if (Meteor.isClient) {
     return rows;
   };
 
+  Template.color_picker.rendered = function() {
+    $('#color-picker').ColorPicker({
+      flat: true,
+      onChange: function(hsb, hex) {
+        $('#selected-color').val(hex);  
+      }
+    });
+  };
+
+  Template.square.events({
+    'click': function() {
+      Squares.update({
+        _id: this._id 
+      }, { 
+        $set: { 
+          color: $('#selected-color').val() 
+        }
+      });
+    }
+  });
 }
 
 if (Meteor.isServer) {

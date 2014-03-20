@@ -5,3 +5,11 @@
     height: 60px;
     display: inline-block;
 }
+
+.wall {
+    text-align: center;
+}
+
+#color-picker {
+    text-align: center;
+}

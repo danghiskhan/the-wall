@@ -5,17 +5,22 @@
 </head>
 
 <body>
-  {{> hello}}
+  {{> header}}
   {{> wall}}
+  {{> color_picker}}
 </body>
 
-<template name="hello">
-  <h1>The Wall</h1>
-  {{greeting}}
+<template name="header">
+    <div classs="header">
+        <h1>The Wall</h1>
+        <p>Welcome to the wall!</p>   
+    </div>
 </template>
 
+<!-- Wall -->
+
 <template name="wall">
-    <div>
+    <div class="wall">
         {{#each rows}}
             {{> row}}
         {{/each}}
@@ -23,7 +28,7 @@
 </template>
 
 <template name="row">
-    <div>
+    <div class="row">
         {{#each squares}}
             {{> square}}
         {{/each}}
@@ -32,5 +37,13 @@
 
 <template name="square">
     <div class="square" style="background-color: #{{ color }}">
+    </div>
+</template>
+
+<!-- Color Picker -->
+
+<template name="color_picker">
+    <input id="selected-color" type="hidden">
+    <div id="color-picker">
     </div>
 </template>
