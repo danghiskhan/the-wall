@@ -2,6 +2,7 @@
   <title>The Wall</title>
   <link rel="stylesheet" media="screen" type="text/css" href="css/colorpicker.css" />
   <script type="text/javascript" src="js/colorpicker.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -13,7 +14,7 @@
 <template name="header">
     <div classs="header">
         <h1>The Wall</h1>
-        <p>Welcome to the wall!</p>   
+        <p>Welcome to The Wall! Pick a colour and click on a square to change it. Anyone can change any colour.</p>   
     </div>
 </template>
 
@@ -43,7 +44,8 @@
 <!-- Color Picker -->
 
 <template name="color_picker">
-    <input id="selected-color" type="hidden">
-    <div id="color-picker">
+    <div class="picker-container">
+        <input id="selected-color" type="hidden">
+        <div id="color-picker"></div>
     </div>
 </template>

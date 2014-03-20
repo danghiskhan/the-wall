@@ -1,8 +1,20 @@
 /* CSS declarations go here */
 
+body {
+    font-family: 'Droid Sans', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
 .square {
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 30px;
     display: inline-block;
 }
 
@@ -11,5 +23,9 @@
 }
 
 #color-picker {
+    display: inline-block;
+}
+
+.picker-container {
     text-align: center;
 }

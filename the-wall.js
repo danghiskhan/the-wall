@@ -1,7 +1,7 @@
 Squares = new Meteor.Collection('squares');
 
-var WIDTH = 16;
-var HEIGHT = 9;
+var WIDTH = 32;
+var HEIGHT = 18;
 
 if (Meteor.isClient) {
   Template.wall.rows = function() {
@@ -32,13 +32,7 @@ if (Meteor.isClient) {
 
   Template.square.events({
     'click': function() {
-      Squares.update({
-        _id: this._id 
-      }, { 
-        $set: { 
-          color: $('#selected-color').val() 
-        }
-      });
+      Meteor.call('updateSquare', this._id, $('#selected-color').val());
     }
   });
 }
@@ -64,3 +58,21 @@ if (Meteor.isServer) {
     insertAllSquares();
   });
 }
+
+Meteor.methods({
+  updateSquare: function(id, color) {
+    var isAColor  = /^[0-9A-F]{6}$/i.test(color);
+
+    if (isAColor) {
+      Squares.update({
+        _id: id
+      }, { 
+        $set: { 
+          color: '#' + color 
+        }
+      });
+    } else {
+      throw new Meteor.Error(404, "Not a valid colour");
+    }
+  }
+});
