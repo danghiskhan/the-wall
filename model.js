@@ -1,6 +1,3 @@
-var WIDTH = 32;
-var HEIGHT = 18;
-
 Squares = new Meteor.Collection('squares');
 
 Meteor.methods({

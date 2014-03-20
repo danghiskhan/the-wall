@@ -1,3 +1,6 @@
+var WIDTH = 32;
+var HEIGHT = 18;
+
 Template.wall.rows = function() {
   var rows = [];
 

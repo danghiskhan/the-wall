@@ -1,3 +1,6 @@
+var WIDTH = 32;
+var HEIGHT = 18;
+
 var insertAllSquares = function() {
   if (Squares.find().count() === 0) {
     for (var i = 0; i < WIDTH; i++) {
