@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Droid Sans', sans-serif;
+    background-image:url('images/furley_bg.png');
 }
 
 h1 {
@@ -27,5 +28,6 @@ p {
 }
 
 .picker-container {
+    margin-top: 40px;
     text-align: center;
 }
